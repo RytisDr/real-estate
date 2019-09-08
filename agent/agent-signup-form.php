@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <form id="agentForm" action="api-signup" method="POST">
-        <input type="email" placeholder="Email" name="txtEmail" id="inputEmail" value="a@a.com">
-        <input type="password" placeholder="Password" name="txtAgentPass1" id="">
-        <input type="password" placeholder="Repeat the Password" name="txtAgentPass2" id="">
+    <form id="agentForm" action="api-agent-signup.php" method="POST">
+        <input type="email" placeholder="email" name="email" id="inputEmail" value="a@a.com" required>
+        <input type="password" placeholder="Password" name="agentPass1" id="" value="pass" required>
+        <input type="password" placeholder="Repeat the Password" name="agentPass2" id="" value="pass" required>
         <button>Sign Up</button>
     </form>
 </body>
