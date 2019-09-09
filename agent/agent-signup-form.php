@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include_once(__DIR__ . '../../components/html-top.php');
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
-<body>
-    <form id="agentForm" action="api-agent-signup.php" method="POST">
-        <input type="email" placeholder="email" name="email" id="inputEmail" value="a@a.com" required>
-        <input type="password" placeholder="Password" name="agentPass1" id="" value="pass" required>
-        <input type="password" placeholder="Repeat the Password" name="agentPass2" id="" value="pass" required>
-        <button>Sign Up</button>
-    </form>
-</body>
-
-</html>
+<form id="agentForm">
+    <input type="text" placeholder="email" name="email" id="inputEmail" value="" required>
+    <input type="password" placeholder="Password" name="agentPass1" id="pass1" value="" required>
+    <input type="password" placeholder="Repeat the Password" name="agentPass2" id="pass2" value="" required>
+    <button id="btnSignup">Sign Up</button>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="agent-signup.js"></script>
+<?php
+include_once(__DIR__ . '../../components/html-bottom.php') ?>
