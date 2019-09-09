@@ -26,15 +26,22 @@ if ($_POST) {
         sendErrorMessage('Passwords do no match', __LINE__);
     }
     $sDataPath = __DIR__ . '../../data/data.json';
+
     $iUniqueId = uniqid();
     $jData = getAndDecodeToJSON($sDataPath);
-    $jAgent = new stdClass();
-    $jAgent->email = $sEmail;
-    $jAgent->password = $sPassword1;
-    $jData->agents->$iUniqueId = $jAgent;
+    //CHECK IF EMAIL EXISTS IN DATA
+    foreach ($jData->agents as $sAgentId => $sAgent) {
+        if ($sAgent->email == $sEmail) {
+            sendErrorMessage('User with this email already exists', __LINE__);
+        }
+        $jAgent = new stdClass();
+        $jAgent->email = $sEmail;
+        $jAgent->password = $sPassword1;
+        $jData->agents->$iUniqueId = $jAgent;
 
-    encodeAndPutToFile($sDataPath, $jData);
+        encodeAndPutToFile($sDataPath, $jData);
 
-    echo '{"status":1,"message":"success", "line": ' . __LINE__ . '}';
-    //header('Location': 'new-page-file')//VERIFY EMAIL?
+        echo '{"status":1,"message":"success", "line": ' . __LINE__ . '}';
+        header('Location: agent-login-form.php');
+    }
 }
