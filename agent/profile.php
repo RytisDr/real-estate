@@ -1,1 +1,0 @@
-<?= 'Welcome' . $_SESSION['agentId'];

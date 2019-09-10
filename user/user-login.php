@@ -1,11 +1,12 @@
 <?php
 //session_start(); session already started in nav
-if ($_SESSION) {
-    header('Location: ../impereal-estate/profile.php');
-    exit;
+if (!empty($_SESSION['userId'])) {
+    header('Location: ' . __DIR__ . '../../profile.php');
 }
 include_once(__DIR__ . '../../global-php-functions/functions.php');
 if ($_POST) {
+
+
     if (empty($_POST['email'])) {
         sendErrorMessage('Missing email', __LINE__);
     }
@@ -28,10 +29,15 @@ if ($_POST) {
     $sDataPath = __DIR__ . '../../data/data.json';
 
     $jData = getAndDecodeToJSON($sDataPath);
-    foreach ($jData->agents as $sAgentId => $sAgent) {
-        if ($sAgent->email == $sEmail && $sAgent->password == $sPassword) {
-            $_SESSION['agentId'] = $sAgentId;
-            header('Location: /impereal-estate/profile.php');
+
+    foreach ($jData->users as $sUserId => $sUser) {
+        echo $sUser->email;
+        if ($sUser->email == $sEmail && $sUser->password == $sPassword) {
+            session_start();
+            $_SESSION['userId'] = $sUserId;
+            header('Location: ' . __DIR__ . '../../profile.php');
+        } else {
+            sendErrorMessage('User with these credentials does not exist, check the input or signup', __LINE__);
         }
     }
 }

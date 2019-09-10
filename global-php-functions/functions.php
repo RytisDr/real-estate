@@ -12,6 +12,6 @@ function getAndDecodeToJSON($sFilePath)
 }
 function encodeAndPutToFile($sFilePath, $jData)
 {
-    $sData = json_encode($jData);
+    $sData = json_encode($jData, JSON_PRETTY_PRINT);
     file_put_contents($sFilePath, $sData);
 }
