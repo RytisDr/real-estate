@@ -1,4 +1,7 @@
 <?php
+if (!empty($_SESSION)) {
+    header('Location: ../profile.php');
+}
 $sPageTitle = 'Buyer Login';
 include_once(__DIR__ . '../../components/html-top.php');
 include_once(__DIR__ . '../../components/html-nav.php');
