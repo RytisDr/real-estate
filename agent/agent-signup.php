@@ -41,7 +41,5 @@ if ($_POST) {
     $jData->agents->$iUniqueId = $jAgent;
 
     encodeAndPutToFile($sDataPath, $jData);
-
-    echo '{"status":1,"message":"success", "line": ' . __LINE__ . '}';
     header('Location: agent-login-form.php?from=success');
 }
