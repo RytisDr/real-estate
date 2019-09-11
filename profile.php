@@ -14,27 +14,38 @@ include_once(__DIR__ . '/components/html-nav.php');
         <label for="firstName">First Name</label>
         <?php
         $sAccType = strval($_SESSION['accType']);
-        $sjData = file_get_contents('data/data.json'); //text from file
+        $sjData = file_get_contents('data/data.json');
         $jData = json_decode($sjData);
         foreach ($jData->$sAccType as $sId => $jUser) {
-
             if ($sId == $_SESSION['userId']) {
                 if (empty($jUser->firstName)) {
                     $jUser->firstName = '';
                 }
-                echo '<input type="text" id="firstName" name="firstName" value="' . $jUser->firstName . '">';
+                if (empty($jUser->lastName)) {
+                    $jUser->lastName = '';
+                }
+                echo '
+                        <input type="text" id="firstName" name="firstName" value="' . $jUser->firstName . '">
+                        <input type="text" id="lastName" name="lastName" value="' . $jUser->lastName . '">
+                    ';
             }
         }
 
         ?>
 
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastName" name="lastName" value="XXXXXX">
+
         <label for="email">Email (requires verification)</label>
         <input type="email" name="email" id="email" value="<?= $_SESSION['userProps']->email ?>">
+    </div>
+    <button id="deleteProfileBtn">Delete Profile</button>
+    <div id="deleteMessage">
+        <h1>Are you sure you want to delete your profile?</h1>
+        <button>Yes</button><button>No</button>
     </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="JS/updateAcc.js"></script>
+<script src="JS/deleteProfile.js"></script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');
