@@ -30,7 +30,9 @@ if ($_POST) {
     $jData = getAndDecodeToJSON($sDataPath);
     foreach ($jData->agents as $sAgentId => $sAgent) {
         if ($sAgent->email == $sEmail && $sAgent->password == $sPassword) {
-            $_SESSION['agentId'] = $sAgentId;
+            unset($sAgent->password); //remove the password before adding it to the session
+            $_SESSION['userId'] = $sAgentId;
+            $_SESSION['userProps'] = $sAgent;
             header('Location: /impereal-estate/profile.php');
         }
     }
