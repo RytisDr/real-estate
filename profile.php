@@ -17,7 +17,11 @@ include_once(__DIR__ . '/components/html-nav.php');
         $sjData = file_get_contents('data/data.json'); //text from file
         $jData = json_decode($sjData);
         foreach ($jData->$sAccType as $sId => $jUser) {
+
             if ($sId == $_SESSION['userId']) {
+                if (empty($jUser->firstName)) {
+                    $jUser->firstName = '';
+                }
                 echo '<input type="text" id="firstName" name="firstName" value="' . $jUser->firstName . '">';
             }
         }
