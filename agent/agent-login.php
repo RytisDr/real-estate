@@ -31,6 +31,7 @@ if ($_POST) {
     foreach ($jData->agents as $sAgentId => $sAgent) {
         if ($sAgent->email == $sEmail && $sAgent->password == $sPassword) {
             unset($sAgent->password); //remove the password before adding it to the session
+            $_SESSION['accType'] = 'agents';
             $_SESSION['userId'] = $sAgentId;
             $_SESSION['userProps'] = $sAgent;
             header('Location: /impereal-estate/profile.php');
