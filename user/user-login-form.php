@@ -9,7 +9,7 @@ include_once(__DIR__ . '../../components/html-nav.php');
 ?>
 <form method="POST">
     <input type="email" name="email" placeholder="email" value="z@z.com">
-    <input type="password" name="password" placeholder="passme" value="pass12">
+    <input type="password" name="password" placeholder="pass12" value="pass12">
     <button>Log In</button>
 </form>
 <?php
