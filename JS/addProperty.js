@@ -14,12 +14,12 @@ $("#btnAddProperty").click(function(e) {
       }, */
     datatype: "JSON"
   }).done(function(data) {
-    $("#agents").append(
+    $("#propertiesContainer").append(
       `<div class="property" id="${data}">
-          <img src="images/default-property-image.jpg" alt="">
-          <input data-update="title" name="txtTitle" type="text" value="${sNewPropertyTitle}">
-          <input data-update="price" name="iPrice" type="number" value="${sNewPropertyPrice}">
-        </div>`
+        <img src="images/default-property-image.jpg" alt="">
+        <input data-update="title" name="title" type="text" value="${sNewPropertyTitle}" id="">
+        <input data-update="price" name="price" type="number" value="${sNewPropertyPrice}" id="">
+    </div>';`
     );
     /*     $(".agent input").blur(function() {
         updateValue(this);

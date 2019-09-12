@@ -2,7 +2,7 @@
 include_once(__DIR__ . '/../global-php-functions/functions.php');
 session_start();
 $sAgentId = $_SESSION['userId'];
-$sUniqueId = uniqid();
+$sUniquePropertyId = uniqid();
 
 $sNewTitleValue = $_POST['title'];
 $sNewPriceValue = $_POST['price'];
@@ -19,7 +19,7 @@ $jProperty->title = $sNewTitleValue;
 $jProperty->price = $sNewPriceValue;
 $jProperty->image = $sImageSource;
 
-$jData->agents->$sAgentId->properties->$sUniqueId = $jProperty;
+$jData->agents->$sAgentId->properties->$sUniquePropertyId = $jProperty;
 
 encodeAndPutToFile($sDataPath, $jData);
-echo $jData;
+echo $sUniquePropertyId;
