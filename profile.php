@@ -1,6 +1,8 @@
 <?php
 $sPageTitle = 'My Profile';
+$cssPath = 'css/main.css';
 include_once(__DIR__ . '/components/html-top.php');
+
 include_once(__DIR__ . '/components/html-nav.php');
 ?>
 <section id="userProfile">
@@ -41,7 +43,7 @@ include_once(__DIR__ . '/components/html-nav.php');
     <button id="deleteProfileBtn">Delete Profile</button>
     <div id="deleteMessage">
         <h1>Are you sure you want to delete your profile?</h1>
-        <button>Yes</button><button>No</button>
+        <button id="yes">Yes</button><button id="no">No</button>
     </div>
 </section>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
