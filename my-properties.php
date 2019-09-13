@@ -1,15 +1,14 @@
 <?php
-
-/* if (empty($_SESSION)) {
-    header("Location: /impereal-estate/");
-} */
 $sPageTitle = 'My Properties';
 $cssPath = 'css/main.css';
 include_once(__DIR__ . '/components/html-top.php');
 include_once(__DIR__ . '/components/html-nav.php');
+if ($_SESSION['accType'] != 'agents') {
+    header("Location: /impereal-estate/");
+}
 ?>
 <div class="addPropertyContainer">
-    <form>
+    <form id="addPropertyForm">
         <input type="file" name="mainPropertyImg" id="mainImg">
         <input type="text" id="propertyTitleInput" name="title" placeholder="Title">
         <input type="number" id="price" name="price" placeholder="Price">
@@ -18,6 +17,7 @@ include_once(__DIR__ . '/components/html-nav.php');
 </div>
 <div id="propertiesContainer">
     <?php
+
     $sAgentId = strval($_SESSION['userId']);
     $sjData = file_get_contents(__DIR__ . '../data/data.json'); //text from file
     $jData = json_decode($sjData); //convert text to JSON

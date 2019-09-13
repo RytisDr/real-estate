@@ -9,5 +9,5 @@
     </a>
     <?= $_SESSION ? null : '<a id="navSignup" href="/impereal-estate/signup.php">Signup</a>' ?>
     <?= $_SESSION ? '<a id="navProfile" href="/impereal-estate/profile.php">Profile</a>' : null ?>
-    <?= empty($_SESSION['accType']) ? null : $_SESSION['accType'] == 'agents' ? '<a id="navMyProperties" href="/impereal-estate/my-properties.php">My Propeties</a>' : null ?>
+    <?= empty($_SESSION['accType']) ? null : $_SESSION['accType'] == 'agents' ? '<a id="navMyProperties" href="/impereal-estate/my-properties.php">My Properties</a>' : null ?>
 </nav>

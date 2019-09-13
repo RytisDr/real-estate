@@ -1,25 +1,28 @@
 $("#btnAddProperty").click(function(e) {
   e.preventDefault();
+
   var sNewPropertyTitle = $("form>#propertyTitleInput").val();
   var sNewPropertyPrice = $("form>#price").val();
-  var sNewPropertyImage = $("form>#mainImage").val();
+  var formData = new FormData();
+  var image = $("form>#mainImg")[0].files[0];
+  formData.append("file", image);
+  formData.append("title", sNewPropertyTitle);
+  formData.append("price", sNewPropertyPrice);
   $.ajax({
     url: "API/api-create-property.php",
     method: "POST",
-    data: $("form").serialize(), // create the form to be passed (name tag values as keys)
-    // automated version of
-    /*  data: {
-        nameValue: sNewPropertyTitle,
-        emailValue: sNewPropertyPrice
-      }, */
-    datatype: "JSON"
+    data: formData,
+    datatype: false,
+    contentType: false,
+    processData: false
   }).done(function(data) {
+    var jData = JSON.parse(data);
     $("#propertiesContainer").append(
-      `<div class="property" id="${data}">
-        <img src="images/default-property-image.jpg" alt="">
+      `<div class="property" id="${jData.propertyId}">
+        <img src="images/${jData.image}" alt="">
         <input data-update="title" name="title" type="text" value="${sNewPropertyTitle}" id="">
         <input data-update="price" name="price" type="number" value="${sNewPropertyPrice}" id="">
-    </div>';`
+    </div>`
     );
     /*     $(".agent input").blur(function() {
         updateValue(this);
