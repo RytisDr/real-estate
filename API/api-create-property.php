@@ -1,4 +1,6 @@
 <?php
+$res = (object) array("success" => false);
+
 include_once(__DIR__ . '/../global-php-functions/functions.php');
 session_start();
 $sAgentId = $_SESSION['userId'];
@@ -21,14 +23,20 @@ $jData = getAndDecodeToJSON($sDataPath);
 if (empty($_FILES['file'])) {
     $sUniqueImageName = 'default-property-image.jpg';
 }
+//this escapes the warning of not existing objectand fixes error on first property creation
+if (empty($jData->agents->$sAgentId->properties)) {
+    $jData->agents->$sAgentId->properties = new stdClass();
+    $jData->agents->$sAgentId->properties->$sUniquePropertyId = $sUniquePropertyId;
+}
+
+
+
 $jProperty = new stdClass();
 $jProperty->title = $sNewTitleValue;
 $jProperty->price = $sNewPriceValue;
 $jProperty->image = $sUniqueImageName;
 
-if (empty($jData->agents->$sAgentId->properties)) {
-    $jData->agents->$sAgentId->properties;
-}
+
 $jData->agents->$sAgentId->properties->$sUniquePropertyId = $jProperty;
 
 encodeAndPutToFile($sDataPath, $jData);

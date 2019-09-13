@@ -24,8 +24,5 @@ $("#btnAddProperty").click(function(e) {
         <input data-update="price" name="price" type="number" value="${sNewPropertyPrice}" id="">
     </div>`
     );
-    /*     $(".agent input").blur(function() {
-        updateValue(this);
-      }); */
   });
 });

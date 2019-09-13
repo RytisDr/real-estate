@@ -15,7 +15,7 @@ if ($_SESSION['accType'] != 'agents') {
         <button id="btnAddProperty">Add a Property</button>
     </form>
 </div>
-<div id="propertiesContainer">
+<div id="propertiesContainer" data-acc-type="<?= $_SESSION['accType'] ?>" data-owner="<?= $_SESSION['userID'] ?>">
     <?php
 
     $sAgentId = strval($_SESSION['userId']);
@@ -24,7 +24,7 @@ if ($_SESSION['accType'] != 'agents') {
     if (!empty($jData->agents->$sAgentId->properties)) {
         foreach ($jData->agents->$sAgentId->properties as $sId => $jProperty) {
             echo '   
-            <div class="property" id="' . $sId . '">
+            <div class="property"  id="' . $sId . '">
                 <img src="images/' . $jProperty->image . '" alt="">
                 <input data-update="title" name="title" type="text" value="' . $jProperty->title . '" id="">
                 <input data-update="price" name="price" type="number" value="' . $jProperty->price . '" id="">
@@ -36,5 +36,6 @@ if ($_SESSION['accType'] != 'agents') {
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="JS/addProperty.js"></script>
+<script src="JS/updateProperty.js"></script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');
