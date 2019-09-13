@@ -6,6 +6,9 @@ function updateValue(input) {
     .parent()
     .parent()
     .attr("data-owner");
+  var propertyId = $(input)
+    .parent()
+    .attr("id");
   var sUpdateKey = $(input).attr("name");
   var sNewValue = $(input).val();
   $.ajax({
@@ -13,6 +16,7 @@ function updateValue(input) {
     method: "POST",
     data: {
       accId: sPostOwnerId,
+      propId: propertyId,
       key: sUpdateKey,
       value: sNewValue
     }

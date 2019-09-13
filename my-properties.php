@@ -15,7 +15,7 @@ if ($_SESSION['accType'] != 'agents') {
         <button id="btnAddProperty">Add a Property</button>
     </form>
 </div>
-<div id="propertiesContainer" data-acc-type="<?= $_SESSION['accType'] ?>" data-owner="<?= $_SESSION['userID'] ?>">
+<div id="propertiesContainer" data-acc-type="<?= $_SESSION['accType'] ?>" data-owner="<?= $_SESSION['userId'] ?>">
     <?php
 
     $sAgentId = strval($_SESSION['userId']);
