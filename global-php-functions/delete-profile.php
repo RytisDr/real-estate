@@ -18,4 +18,4 @@ if ($_SESSION['accType'] == 'agents') {
 
 encodeAndPutToFile(__DIR__ . '../../data/data.json', $jData);
 session_destroy();
-header('Location: ../index.php');
+header('Location: ../index');
