@@ -22,6 +22,7 @@ $("#btnAddProperty").click(function(e) {
         <img src="images/${jData.image}" alt="">
         <input data-update="title" name="title" type="text" value="${sNewPropertyTitle}" id="">
         <input data-update="price" name="price" type="number" value="${sNewPropertyPrice}" id="">
+        <button id="deletePropertyBtn">Remove This Property</button>
     </div>`
     );
   });

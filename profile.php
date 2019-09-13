@@ -4,6 +4,9 @@ $cssPath = 'css/main.css';
 include_once(__DIR__ . '/components/html-top.php');
 
 include_once(__DIR__ . '/components/html-nav.php');
+if (!$_SESSION) {
+    header('Location: /impereal-estate/login');
+}
 ?>
 <section id="userProfile">
     <h1>Edit your profile</h1>

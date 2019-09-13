@@ -4,7 +4,7 @@ $cssPath = 'css/main.css';
 include_once(__DIR__ . '/components/html-top.php');
 include_once(__DIR__ . '/components/html-nav.php');
 if ($_SESSION['accType'] != 'agents') {
-    header("Location: /impereal-estate/");
+    header("Location: /impereal-estate/agent/agent-login-form");
 }
 ?>
 <div class="addPropertyContainer">
@@ -28,6 +28,7 @@ if ($_SESSION['accType'] != 'agents') {
                 <img src="images/' . $jProperty->image . '" alt="">
                 <input data-update="title" name="title" type="text" value="' . $jProperty->title . '" id="">
                 <input data-update="price" name="price" type="number" value="' . $jProperty->price . '" id="">
+                <button id="deletePropertyBtn">Remove This Property</button>
             </div>';
         }
     }
