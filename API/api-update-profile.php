@@ -1,6 +1,8 @@
 <?php
-$accType = $_POST['accType'];
-$sProfileId = $_POST['id'];
+session_start();
+
+$accType = $_SESSION['accType'];
+$sProfileId = $_SESSION['userId'];
 $sKeyToUpdate = $_POST['key'];
 $sNewValue = $_POST['value'];
 include_once(__DIR__ . '/../global-php-functions/functions.php');

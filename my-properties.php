@@ -15,7 +15,7 @@ if ($_SESSION['accType'] != 'agents') {
         <button id="btnAddProperty">Add a Property</button>
     </form>
 </div>
-<div id="propertiesContainer" data-acc-type="<?= $_SESSION['accType'] ?>" data-owner="<?= $_SESSION['userId'] ?>">
+<div id="propertiesContainer">
     <?php
 
     $sAgentId = strval($_SESSION['userId']);
@@ -38,5 +38,6 @@ if ($_SESSION['accType'] != 'agents') {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="JS/addProperty.js"></script>
 <script src="JS/updateProperty.js"></script>
+<script src="JS/deleteProperty.js"></script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');

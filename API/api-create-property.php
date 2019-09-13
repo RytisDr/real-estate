@@ -4,6 +4,7 @@ $res = (object) array("success" => false);
 include_once(__DIR__ . '/../global-php-functions/functions.php');
 session_start();
 $sAgentId = $_SESSION['userId'];
+$sAccType = $_SESSION['accType'];
 $sUniquePropertyId = uniqid();
 $sNewTitleValue = $_POST['title'];
 $sNewPriceValue = intval($_POST['price']);
@@ -24,9 +25,9 @@ if (empty($_FILES['file'])) {
     $sUniqueImageName = 'default-property-image.jpg';
 }
 //this escapes the warning of not existing objectand fixes error on first property creation
-if (empty($jData->agents->$sAgentId->properties)) {
-    $jData->agents->$sAgentId->properties = new stdClass();
-    $jData->agents->$sAgentId->properties->$sUniquePropertyId = $sUniquePropertyId;
+if (empty($jData->$sAccType->$sAgentId->properties)) {
+    $jData->$sAccType->$sAgentId->properties = new stdClass();
+    $jData->$sAccType->$sAgentId->properties->$sUniquePropertyId = $sUniquePropertyId;
 }
 
 
@@ -37,7 +38,7 @@ $jProperty->price = $sNewPriceValue;
 $jProperty->image = $sUniqueImageName;
 
 
-$jData->agents->$sAgentId->properties->$sUniquePropertyId = $jProperty;
+$jData->$sAccType->$sAgentId->properties->$sUniquePropertyId = $jProperty;
 
 encodeAndPutToFile($sDataPath, $jData);
 $aDataToSendBack = array(

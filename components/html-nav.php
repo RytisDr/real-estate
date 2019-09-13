@@ -1,7 +1,7 @@
 <nav>
     <?php session_start();
     ?>
-    <a id="navProperties" href="/impereal-estate/index">Properties</a>
+    <a id="navProperties" href="/impereal-estate/">Properties</a>
     <a id="navLogInOut" href=<?= $_SESSION ? '/impereal-estate/global-php-functions/logout' : '/impereal-estate/login';
                                 ?>>
         <?= $_SESSION ? 'Logout' : 'Login';

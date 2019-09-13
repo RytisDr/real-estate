@@ -15,7 +15,7 @@ if (!$_SESSION) {
         <label for="profileImageInput">Update the profile image.</label>
         <input type="file" name="profileImageInput" id="profileImgInput">
     </div>
-    <div class="profileEditInputs" data-account-type="<?= $_SESSION['accType'] ?>" data-id="<?= $_SESSION['userId'] ?>">
+    <div class="profileEditInputs">
         <label for="firstName">First Name</label>
         <?php
         $sAccType = strval($_SESSION['accType']);
