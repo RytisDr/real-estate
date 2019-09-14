@@ -34,7 +34,7 @@ if ($_POST) {
             $_SESSION['accType'] = 'agents';
             $_SESSION['userId'] = $sAgentId;
             $_SESSION['userProps'] = $sAgent;
-            header('Location: /impereal-estate/profile.php');
+            header('Location: /impereal-estate/my-properties.php');
         }
     }
 }

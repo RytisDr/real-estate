@@ -1,9 +1,21 @@
 * {
-  margin: 0;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: 0px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 .active {
-  text-decoration: brown;
+  border: 1px red solid;
 }
 #deleteMessage {
   display: none;
+}
+
+#indexMapContainer {
+  width: 100%;
+  height: 500px;
 }

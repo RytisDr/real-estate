@@ -2,9 +2,6 @@ $(document).on("click", "#interestedBtn", function() {
   var agentEmail = $(this)
     .parent()
     .attr("data-agent-email");
-  var propertyId = $(this)
-    .parent()
-    .attr("id");
   var propertyTitle = $(this)
     .parent()
     .find("#propertyTitleh1")
@@ -19,7 +16,6 @@ $(document).on("click", "#interestedBtn", function() {
     url: "API/api-send-email.php",
     method: "POST",
     data: {
-      propId: propertyId,
       propImg: propertyImg,
       propTitle: propertyTitle,
       propPrice: propertyPrice,

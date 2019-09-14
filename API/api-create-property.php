@@ -1,6 +1,5 @@
 <?php
 $res = (object) array("success" => false);
-
 include_once(__DIR__ . '/../global-php-functions/functions.php');
 session_start();
 $sAgentId = $_SESSION['userId'];
@@ -8,6 +7,8 @@ $sAccType = $_SESSION['accType'];
 $sUniquePropertyId = uniqid();
 $sNewTitleValue = $_POST['title'];
 $sNewPriceValue = intval($_POST['price']);
+$sNewLongitudeValue = floatval($_POST['longitude']);
+$sNewLatitudeValue = floatval($_POST['latitude']);
 if ($_FILES) {
     $fNewPropertyImage = $_FILES['file']['name'];
     $sExtention = pathinfo($fNewPropertyImage, PATHINFO_EXTENSION);
@@ -36,6 +37,11 @@ $jProperty = new stdClass();
 $jProperty->title = $sNewTitleValue;
 $jProperty->price = $sNewPriceValue;
 $jProperty->image = $sUniqueImageName;
+$jProperty->geometry = new stdClass();
+$jProperty->geometry->coordinates = new stdClass();
+$jProperty->geometry->coordinates = [$sNewLongitudeValue, $sNewLatitudeValue];
+$jProperty->geometry->type = new stdClass();
+$jProperty->geometry->type = "Point";
 
 
 $jData->$sAccType->$sAgentId->properties->$sUniquePropertyId = $jProperty;

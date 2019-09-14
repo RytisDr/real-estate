@@ -35,7 +35,7 @@ if ($_POST) {
             $_SESSION['accType'] = 'users';
             $_SESSION['userId'] = $sUserId;
             $_SESSION['userProps'] = $sUser;
-            header('Location: /impereal-estate/profile.php');
+            header('Location: /impereal-estate/');
         }
         // sendErrorMessage('User with these credentials does not exist, check the input or signup', __LINE__);
     }

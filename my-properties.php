@@ -11,7 +11,9 @@ if ($_SESSION['accType'] != 'agents') {
     <form id="addPropertyForm">
         <input type="file" name="mainPropertyImg" id="mainImg">
         <input type="text" id="propertyTitleInput" name="title" placeholder="Title">
-        <input type="number" id="price" name="price" placeholder="Price">
+        <input type="number" id="priceInput" name="price" placeholder="Price">
+        <input name="longitude" type="number" placeholder="Longitude" id="propertyLongitudeInput">
+        <input name="latitude" type="number" placeholder="Latitude" id="propertyLatitudeInput">
         <button id="btnAddProperty">Add a Property</button>
     </form>
 </div>
@@ -28,6 +30,8 @@ if ($_SESSION['accType'] != 'agents') {
                 <img src="images/' . $jProperty->image . '" alt="">
                 <input data-update="title" name="title" type="text" value="' . $jProperty->title . '" id="" required>
                 <input data-update="price" name="price" type="number" value="' . $jProperty->price . '" id="">
+                <input data-update="long" name="longitude" type="number" placeholder="Longitude" value="' . $jProperty->geometry->coordinates[0] . '" id="">
+                <input data-update="lat" name="latitude" type="number" placeholder="Latitude" value="' . $jProperty->geometry->coordinates[1] . '" id="">
                 <button id="deletePropertyBtn">Remove This Property</button>
             </div>';
         }
