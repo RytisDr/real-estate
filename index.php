@@ -8,11 +8,11 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
 <div id="indexMapContainer">
 
 </div>
-<!-- <form id="frmSearch">
-    <input name="search" id="txtSearch" type="text" placeholder="search">
-</form> -->
+<form id="frmSearch">
+    <input name="search" id="txtSearch" type="text" placeholder="search by zipcode">
+</form>
+<div id="results"></div>
 <div id="indexPropertiesContainer">
-
     <?php
     $sDataPath = __DIR__ . '/data/data.json';
     $jData = getAndDecodeToJSON($sDataPath);
@@ -21,7 +21,7 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
         if (!empty($agent->properties)) {
             $aPropertiesArray = array();
             foreach ($agent->properties as $sPropId => $jProperty) {
-                //create properties, put them in array for later use in map.js
+                //create properties, put them in array for later use in JS
                 $newProp = new stdClass();
                 $newProp = $jProperty;
                 $newProp->id = $sPropId;
@@ -50,5 +50,6 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
     const sjProperties = '<?php echo json_encode($aPropertiesArray); ?>'
 </script>
 <script src="JS/map.js"></script>
+<script src="JS/search.js"></script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');

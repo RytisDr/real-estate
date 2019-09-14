@@ -9,6 +9,8 @@ $sNewTitleValue = $_POST['title'];
 $sNewPriceValue = intval($_POST['price']);
 $sNewLongitudeValue = floatval($_POST['longitude']);
 $sNewLatitudeValue = floatval($_POST['latitude']);
+$sNewZipValue = intval($_POST['zip']);
+
 if ($_FILES) {
     $fNewPropertyImage = $_FILES['file']['name'];
     $sExtention = pathinfo($fNewPropertyImage, PATHINFO_EXTENSION);
@@ -37,6 +39,8 @@ $jProperty = new stdClass();
 $jProperty->title = $sNewTitleValue;
 $jProperty->price = $sNewPriceValue;
 $jProperty->image = $sUniqueImageName;
+$jProperty->zip = $sNewZipValue;
+
 $jProperty->geometry = new stdClass();
 $jProperty->geometry->coordinates = new stdClass();
 $jProperty->geometry->coordinates = [$sNewLongitudeValue, $sNewLatitudeValue];
