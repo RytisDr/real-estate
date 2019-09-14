@@ -11,6 +11,7 @@ txtSearch.addEventListener("input", function() {
       $("#results").empty();
       if (propertiesFound.length) {
         propertiesFound.forEach(property => {
+          addMarkersToMap(property);
           let divProperty = `<div class="property"  id="Right${property.id}" data-agent-email="${property.agentEmail}">
                                 <img class="propertyMainImg" src="images/${property.image}" alt="">
                                 <h1  id="propertyTitleh1">${property.title}</h1>
@@ -25,9 +26,11 @@ txtSearch.addEventListener("input", function() {
     });
 
   if (txtSearch.value.length == 0) {
+    placeMarkersAddEventListeners();
     divResults.style.display = "none";
     indexPropContainer.style.display = "initial";
   } else {
+    removeMapMarkers();
     divResults.style.display = "block";
     indexPropContainer.style.display = "none";
   }
