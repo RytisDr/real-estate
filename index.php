@@ -8,7 +8,11 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
 <div id="indexMapContainer">
 
 </div>
+<!-- <form id="frmSearch">
+    <input name="search" id="txtSearch" type="text" placeholder="search">
+</form> -->
 <div id="indexPropertiesContainer">
+
     <?php
     $sDataPath = __DIR__ . '/data/data.json';
     $jData = getAndDecodeToJSON($sDataPath);
