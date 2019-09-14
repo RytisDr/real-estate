@@ -26,7 +26,7 @@ if ($_SESSION['accType'] != 'agents') {
             echo '   
             <div class="property"  id="' . $sId . '">
                 <img src="images/' . $jProperty->image . '" alt="">
-                <input data-update="title" name="title" type="text" value="' . $jProperty->title . '" id="">
+                <input data-update="title" name="title" type="text" value="' . $jProperty->title . '" id="" required>
                 <input data-update="price" name="price" type="number" value="' . $jProperty->price . '" id="">
                 <button id="deletePropertyBtn">Remove This Property</button>
             </div>';
