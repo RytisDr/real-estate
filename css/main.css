@@ -6,7 +6,6 @@
 body {
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 .active {
   border: 1px red solid;

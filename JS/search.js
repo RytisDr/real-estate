@@ -26,12 +26,12 @@ txtSearch.addEventListener("input", function() {
     });
 
   if (txtSearch.value.length == 0) {
-    placeMarkersAddEventListeners();
     divResults.style.display = "none";
     indexPropContainer.style.display = "initial";
+    placeMarkersAddEventListeners();
   } else {
-    removeMapMarkers();
     divResults.style.display = "block";
     indexPropContainer.style.display = "none";
+    removeMapMarkers();
   }
 });
