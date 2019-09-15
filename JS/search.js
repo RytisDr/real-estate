@@ -1,6 +1,7 @@
 const txtSearch = document.querySelector("#txtSearch");
 const divResults = document.getElementById("results");
 const indexPropContainer = document.getElementById("indexPropertiesContainer");
+
 txtSearch.addEventListener("input", function() {
   $.ajax({
     url: "API/api-search.php",
@@ -18,6 +19,11 @@ txtSearch.addEventListener("input", function() {
                                 <h1  id="propertyPriceh1">${property.price}</h1>
                             </div>`;
           $("#results").append(divProperty);
+          $.ajax({
+            url: "API/api-check-session.php"
+          }).done(response => {
+            $("#results .property").append(response);
+          });
         });
       }
     })
