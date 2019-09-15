@@ -47,7 +47,7 @@ function addMarkersToMap(jProperty) {
   el.style.height = "50px";
   el.id = jProperty.id;
   el.id = jProperty.id;
-  new mapboxgl.Marker(el).setLngLat(jProperty.geometry.coordinates).addTo(map);
+
   el.addEventListener("click", function() {
     //remove hashtag received from href
     $(window).on("hashchange", function(e) {
@@ -57,10 +57,12 @@ function addMarkersToMap(jProperty) {
     document.getElementById(this.id).classList.add("active"); // left
     document.getElementById("Right" + this.id).classList.add("active"); // right
   });
+  let marker = new mapboxgl.Marker(el)
+    .setLngLat(jProperty.geometry.coordinates)
+    .addTo(map);
+  currentMarkers.push(marker);
 }
 function removeMapMarkers() {
-  // save tmp marker into currentMarkers
-
   // remove markers
   if (currentMarkers !== null) {
     for (var i = currentMarkers.length - 1; i >= 0; i--) {
@@ -68,6 +70,7 @@ function removeMapMarkers() {
     }
   }
 }
+
 function removeActiveClassFromProperty() {
   let properties = document.querySelectorAll(".active");
   properties.forEach(function(oPropertyDiv) {

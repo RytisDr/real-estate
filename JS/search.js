@@ -3,6 +3,7 @@ const divResults = document.getElementById("results");
 const indexPropContainer = document.getElementById("indexPropertiesContainer");
 
 txtSearch.addEventListener("input", function() {
+  removeMapMarkers();
   $.ajax({
     url: "API/api-search.php",
     data: $("#frmSearch").serialize(),
@@ -33,7 +34,7 @@ txtSearch.addEventListener("input", function() {
 
   if (txtSearch.value.length == 0) {
     divResults.style.display = "none";
-    indexPropContainer.style.display = "initial";
+    indexPropContainer.style.display = "block";
     placeMarkersAddEventListeners();
   } else {
     divResults.style.display = "block";

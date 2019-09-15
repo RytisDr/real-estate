@@ -6,32 +6,6 @@
 body {
   height: calc(100vh - 50px);
 }
-#indexBodyCont,
-#loginBodyCont,
-#signupBodyCont,
-#userLoginBodyCont,
-#userSignupBodyCont,
-#agentLoginBodyCont,
-#agentSignupBodyCont,
-#userProfile,
-#myPropContainer {
-  margin-top: 50px;
-}
-.active {
-  border: 1px red solid;
-}
-#deleteMessage {
-  display: none;
-}
-#indexBodyCont {
-}
-#indexMapContainer {
-  width: calc(100vw - 17px);
-  height: 500px;
-}
-#indexPropertiesContainer,
-#results {
-}
 nav {
   width: 100vw;
   height: 50px;
@@ -68,4 +42,54 @@ nav a:nth-child(4) {
   width: 120px;
   height: 30px;
   border-radius: 50px;
+}
+
+#indexBodyCont,
+#loginBodyCont,
+#signupBodyCont,
+#userLoginBodyCont,
+#userSignupBodyCont,
+#agentLoginBodyCont,
+#agentSignupBodyCont,
+#userProfile,
+#myPropContainer {
+  margin-top: 50px;
+}
+.active {
+  border: 2px #5a44b3 solid;
+  border-radius: 50px;
+}
+#deleteMessage {
+  display: none;
+}
+#indexBodyCont {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+#indexMapContainer {
+  grid-column: 1;
+  position: fixed;
+  height: calc(100vh - 50px);
+  width: 50%;
+}
+#rightContainer,
+#results {
+  grid-column: 2;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+}
+.property img {
+  max-width: 100%;
+}
+#frmSearch {
+  display: grid;
+  justify-self: center;
+  height: 40px;
+  border: solid black 1px;
+}
+#frmSearch input {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
 }
