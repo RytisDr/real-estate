@@ -52,5 +52,10 @@ if (!$_SESSION) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="JS/updateAcc.js"></script>
 <script src="JS/deleteProfile.js"></script>
+<script src="JS/activeLink.js"> </script>
+<script>
+    removeActiveClass()
+    setActiveLink("navProfile");
+</script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');

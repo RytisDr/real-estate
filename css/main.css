@@ -4,8 +4,18 @@
   box-sizing: 0px;
 }
 body {
-  width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 50px);
+}
+#indexBodyCont,
+#loginBodyCont,
+#signupBodyCont,
+#userLoginBodyCont,
+#userSignupBodyCont,
+#agentLoginBodyCont,
+#agentSignupBodyCont,
+#userProfile,
+#myPropContainer {
+  margin-top: 50px;
 }
 .active {
   border: 1px red solid;
@@ -15,6 +25,39 @@ body {
 }
 
 #indexMapContainer {
-  width: 100%;
+  width: calc(100vw - 17px);
   height: 500px;
+}
+#indexMapContainer {
+}
+#indexPropertiesContainer,
+#results {
+}
+nav {
+  width: 100vw;
+  height: 50px;
+  display: grid;
+  top: 0px;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+  position: fixed;
+  z-index: 3;
+  background-color: #5a44b3;
+  font-family: "Open Sans", sans-serif;
+}
+nav a {
+  justify-self: center;
+  align-self: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+.activeLink {
+  text-align: center;
+  line-height: 30px;
+  color: #5a44b3;
+  background-color: white;
+  width: 120px;
+  height: 30px;
+  border-radius: 50px;
 }

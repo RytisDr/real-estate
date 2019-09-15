@@ -7,6 +7,7 @@ if ($_SESSION['accType'] != 'agents') {
     header("Location: /impereal-estate/agent/agent-login-form");
 }
 ?>
+<div id="myPropContainer"></div>
 <div class="addPropertyContainer">
     <form id="addPropertyForm">
         <input type="file" name="mainPropertyImg" id="mainImg">
@@ -45,5 +46,10 @@ if ($_SESSION['accType'] != 'agents') {
 <script src="JS/addProperty.js"></script>
 <script src="JS/updateProperty.js"></script>
 <script src="JS/deleteProperty.js"></script>
+<script src="JS/activeLink.js"> </script>
+<script>
+    removeActiveClass()
+    setActiveLink("navMyProperties");
+</script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');
