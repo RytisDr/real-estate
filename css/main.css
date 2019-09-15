@@ -119,14 +119,18 @@ div.property.active h1 {
   justify-self: center;
   height: 40px;
 }
-#frmSearch input {
+#frmSearch input,
+.loginForm input,
+.signupForm input,
+.profileEditInputs input {
   font-family: "Open Sans", sans-serif;
   font-size: 1.5em;
   text-align: center;
   border: solid #a994ff 2px;
   border-radius: 0px 0px 20px 20px;
 }
-#interestedBtn {
+#interestedBtn,
+#userProfile button {
   font-family: "Open Sans", sans-serif;
   font-size: 1em;
   font-weight: 600;
@@ -167,7 +171,10 @@ div.property.active #interestedBtn {
   border: 3px solid transparent;
 }
 #loginBodyCont a:hover,
-#signupBodyCont a:hover {
+#signupBodyCont a:hover,
+.loginForm button:hover,
+.signupForm button:hover,
+#userProfile button:hover {
   color: #5a44b3;
   background-color: white;
   border: 3px solid #5a44b3;
@@ -176,6 +183,51 @@ div.property.active #interestedBtn {
 .signupForm {
   display: grid;
   grid-row-gap: 10px;
-  width: 200px;
+  width: 300px;
   margin: 200px auto;
+}
+.loginForm > *,
+.signupForm > * {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+}
+.loginForm button,
+.signupForm button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: #5a44b3;
+  border: none;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+#userProfile {
+  font-family: "Open Sans", sans-serif;
+  display: grid;
+  width: 600px;
+  margin: 100px auto;
+}
+#userProfile h1 {
+  margin: 20px 0px;
+  text-align: center;
+}
+#profileImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.profileEditInputs {
+  display: grid;
+  width: 300px;
+  margin: auto;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+}
+#userProfile button {
+  margin: auto;
+  width: 150px;
+  height: 40px;
+  margin: 20px auto;
 }

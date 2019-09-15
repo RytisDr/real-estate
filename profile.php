@@ -9,14 +9,13 @@ if (!$_SESSION) {
 }
 ?>
 <section id="userProfile">
-    <h1>Edit your profile</h1>
+    <h1>Edit Your Profile</h1>
     <div id="profileImgContainer">
         <img id="profileImg" src="images/default-profile-img.png" alt="">
-        <label for="profileImageInput">Update the profile image.</label>
-        <input type="file" name="profileImageInput" id="profileImgInput">
+        <!-- <label for="profileImageInput">Update the profile image.</label>
+        <input type="file" name="profileImageInput" id="profileImgInput"> -->
     </div>
     <div class="profileEditInputs">
-        <label for="firstName">First Name</label>
         <?php
         $sAccType = strval($_SESSION['accType']);
         $sjData = file_get_contents('data/data.json');
@@ -30,19 +29,19 @@ if (!$_SESSION) {
                     $jUser->lastName = '';
                 }
                 echo '
-                        <input type="text" id="firstName" name="firstName" value="' . $jUser->firstName . '">
-                        <input type="text" id="lastName" name="lastName" value="' . $jUser->lastName . '">
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" value="' . $jUser->firstName . '">
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="' . $jUser->lastName . '">
                     ';
             }
         }
 
         ?>
 
-        <label for="lastName">Last Name</label>
 
-        <label for="email">Email (requires verification)</label>
-        <input type="email" name="email" id="email" value="<?= $_SESSION['userProps']->email ?>">
+        <!--  <label for="email">Email</label> -->
+        <input type="email" name="email" id="email" placeholder="Email" value="<?= $_SESSION['userProps']->email ?>">
     </div>
+    <h1>Or</h1>
     <button id="deleteProfileBtn">Delete Profile</button>
     <div id="deleteMessage">
         <h1>Are you sure you want to delete your profile?</h1>
