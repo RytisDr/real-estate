@@ -1,10 +1,14 @@
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing: 0px;
+  box-sizing: border-box;
+  transition: all 0.4s;
 }
 body {
   height: calc(100vh - 50px);
+}
+input:focus {
+  outline: none;
 }
 nav {
   width: 100vw;
@@ -56,8 +60,16 @@ nav a:nth-child(4) {
   margin-top: 50px;
 }
 .active {
-  border: 2px #5a44b3 solid;
-  border-radius: 50px;
+  border-radius: 30px;
+  background-color: #5a44b3;
+}
+div.property.active {
+  border-radius: 20px 20px 20px 0px;
+  border: 3px solid #5a44b3;
+  background-color: #5a44b3;
+}
+div.property.active h1 {
+  color: white;
 }
 #deleteMessage {
   display: none;
@@ -72,24 +84,98 @@ nav a:nth-child(4) {
   height: calc(100vh - 50px);
   width: 50%;
 }
-#rightContainer,
-#results {
+#rightContainer {
   grid-column: 2;
   width: 100%;
   height: auto;
   overflow: auto;
 }
+
+#results .property img {
+  width: 100%;
+}
+.property {
+  border: 3px solid transparent;
+  margin: 5px 0px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
 .property img {
-  max-width: 100%;
+  grid-column: span 2;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+}
+.property h1 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+}
+#indexPropertiesContainer,
+#results {
+  display: grid;
+  grid-template-columns: 50% 50%;
 }
 #frmSearch {
   display: grid;
   justify-self: center;
   height: 40px;
-  border: solid black 1px;
 }
 #frmSearch input {
   font-family: "Open Sans", sans-serif;
   font-size: 1.5em;
   text-align: center;
+  border: solid #a994ff 2px;
+  border-radius: 0px 0px 20px 20px;
+}
+#interestedBtn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  color: white;
+  background-color: #5a44b3;
+  border: none;
+  width: 120px;
+  height: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+div.property.active #interestedBtn {
+  background-color: white;
+  color: #5a44b3;
+}
+#loginBodyCont,
+#signupBodyCont {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 40vw;
+  margin: auto;
+  height: 40vh;
+}
+
+#loginBodyCont a,
+#signupBodyCont a {
+  margin: auto;
+  text-decoration: none;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  background-color: #5a44b3;
+  width: 200px;
+  line-height: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 50px;
+  font-size: 1.7em;
+  border: 3px solid transparent;
+}
+#loginBodyCont a:hover,
+#signupBodyCont a:hover {
+  color: #5a44b3;
+  background-color: white;
+  border: 3px solid #5a44b3;
+}
+.loginForm,
+.signupForm {
+  display: grid;
+  grid-row-gap: 10px;
+  width: 200px;
+  margin: 200px auto;
 }

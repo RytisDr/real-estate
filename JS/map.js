@@ -22,11 +22,9 @@ function placeMarkersAddEventListeners() {
     el.style.width = "50px";
     el.style.height = "50px";
     el.id = jProperty.id;
-    el.addEventListener("click", function() {
-      //remove hashtag received from href
-      $(window).on("hashchange", function(e) {
-        history.replaceState("", document.title, e.originalEvent.oldURL);
-      });
+    el.addEventListener("click", function(e) {
+      e.preventDefault();
+      console.log("click");
       removeActiveClassFromProperty();
       document.getElementById(this.id).classList.add("active"); // left
       document.getElementById("Right" + this.id).classList.add("active"); // right
@@ -48,11 +46,9 @@ function addMarkersToMap(jProperty) {
   el.id = jProperty.id;
   el.id = jProperty.id;
 
-  el.addEventListener("click", function() {
-    //remove hashtag received from href
-    $(window).on("hashchange", function(e) {
-      history.replaceState("", document.title, e.originalEvent.oldURL);
-    });
+  el.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log("click");
     removeActiveClassFromProperty();
     document.getElementById(this.id).classList.add("active"); // left
     document.getElementById("Right" + this.id).classList.add("active"); // right

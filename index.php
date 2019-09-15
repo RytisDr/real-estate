@@ -12,7 +12,7 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
     </div>
     <div id="rightContainer">
         <form id="frmSearch">
-            <input name="search" id="txtSearch" type="text" placeholder="search by zipcode">
+            <input name="search" id="txtSearch" type="text" placeholder="Search By Zipcode">
         </form>
         <div id="results"></div>
         <div id="indexPropertiesContainer">
@@ -31,12 +31,11 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
                         $newProp->id = $sPropId;
 
                         array_push($aPropertiesArray, $newProp);
-
                         echo '   
                 <div class="property"  id="Right' . $sPropId . '" data-agent-email="' . $sAgentEmail . '">
                     <img class="propertyMainImg" src="images/' . $jProperty->image . '" alt="">
-                    <h1  id="propertyTitleh1">' . $jProperty->title . '</h1>
-                    <h1  id="propertyPriceh1">' . $jProperty->price . '</h1>';
+                    <h1  id="propertyTitle">' . $jProperty->title . '</h1>
+                    <h1  id="propertyPrice">' . $jProperty->price . '</h1>';
                         if ($_SESSION) {
                             if ($_SESSION['accType'] == 'users') {
                                 echo '<button id="interestedBtn">Interested</button>';
@@ -58,6 +57,7 @@ include_once(__DIR__ . '/global-php-functions/functions.php')
     setActiveLink("navProperties");
     const sjProperties = '<?php echo json_encode($aPropertiesArray); ?>'
 </script>
+<script src="JS/formatPrice.js"></script>
 <script src="JS/map.js"></script>
 <script src="JS/search.js"></script>
 <?php

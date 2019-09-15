@@ -6,7 +6,7 @@ include_once(__DIR__ . '../../components/html-top.php');
 include_once(__DIR__ . '../../components/html-nav.php');
 ?>
 <div id="userSignupBodyCont">
-    <form id="userForm" method="POST">
+    <form class="signupForm" id="userForm" method="POST">
         <input type="text" placeholder="email" name="email" id="inputEmail" value="">
         <input type="password" placeholder="Password" name="userPass1" id="pass1" value="">
         <input type="password" placeholder="Repeat the Password" name="userPass2" id="pass2" value="">

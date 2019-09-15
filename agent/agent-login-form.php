@@ -8,7 +8,7 @@ include_once(__DIR__ . '../../components/html-top.php');
 include_once(__DIR__ . '../../components/html-nav.php');
 ?>
 <div id="agentLoginBodyCont">
-    <form method="POST">
+    <form class="loginForm" id="agentLoginForm" method="POST">
         <input type="email" name="email" placeholder="email" value="r.drazdauskas@gmail.com">
         <input type="password" name="password" placeholder="passme" value="passme">
         <button>Log In</button>
