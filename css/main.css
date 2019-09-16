@@ -4,6 +4,11 @@
   box-sizing: border-box;
   transition: all 0.4s;
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 body {
   height: calc(100vh - 50px);
 }
@@ -113,6 +118,7 @@ div.property.active h1 {
 #results {
   display: grid;
   grid-template-columns: 50% 50%;
+  margin-top: 10px;
 }
 #frmSearch {
   display: grid;
@@ -122,9 +128,12 @@ div.property.active h1 {
 #frmSearch input,
 .loginForm input,
 .signupForm input,
-.profileEditInputs input {
+.profileEditInputs input,
+#addPropertyForm input,
+#propertiesContainer .property input {
   font-family: "Open Sans", sans-serif;
   font-size: 1.5em;
+  height: 50px;
   text-align: center;
   border: solid #a994ff 2px;
   border-radius: 0px 0px 20px 20px;
@@ -174,7 +183,10 @@ div.property.active #interestedBtn {
 #signupBodyCont a:hover,
 .loginForm button:hover,
 .signupForm button:hover,
-#userProfile button:hover {
+#userProfile button:hover,
+#inputFileCont label:hover,
+#btnAddProperty:hover,
+#propertiesContainer .property button:hover {
   color: #5a44b3;
   background-color: white;
   border: 3px solid #5a44b3;
@@ -192,7 +204,9 @@ div.property.active #interestedBtn {
   font-size: 1.5em;
 }
 .loginForm button,
-.signupForm button {
+.signupForm button,
+#btnAddProperty,
+#propertiesContainer .property button {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   color: white;
@@ -230,4 +244,65 @@ div.property.active #interestedBtn {
   width: 150px;
   height: 40px;
   margin: 20px auto;
+}
+#addPropertyForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+  width: 350px;
+  margin: 70px auto;
+}
+#addPropertyForm input {
+  font-size: 1.5em;
+  height: 50px;
+  text-align: center;
+}
+input#mainImg {
+  border: none;
+  position: absolute;
+  z-index: 2;
+  left: 0px;
+  width: 350px;
+  height: 50px;
+  padding-left: 40px;
+  opacity: 0;
+}
+#inputFileCont label {
+  position: absolute;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: white;
+  background-color: #5a44b3;
+  border: none;
+  height: 50px;
+  line-height: 30px;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+#inputFileCont {
+  position: relative;
+}
+#overlayInput {
+  width: 170px;
+  margin-left: 180px;
+}
+#btnAddProperty {
+  font-size: 1.5em;
+}
+#propertiesContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 1000px;
+  margin: auto;
+}
+#propertiesContainer .property input {
+  font-size: 1.1em;
+  margin: 3px 1px;
+  height: 50px;
+  text-align: center;
+}
+#propertiesContainer .property button {
+  margin-top: 2px;
+  font-size: 1em;
 }

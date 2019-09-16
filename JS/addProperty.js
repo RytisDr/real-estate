@@ -8,7 +8,7 @@ $("#btnAddProperty").click(function(e) {
   var sNewPropertyZip = $("form>#propertyZipInput").val();
 
   var formData = new FormData();
-  var image = $("form>#mainImg")[0].files[0];
+  var image = $("#inputFileCont #mainImg")[0].files[0];
   formData.append("file", image);
   formData.append("title", sNewPropertyTitle);
   formData.append("price", sNewPropertyPrice);

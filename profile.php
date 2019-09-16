@@ -31,6 +31,7 @@ if (!$_SESSION) {
                 echo '
                         <input type="text" id="firstName" name="firstName" placeholder="First Name" value="' . $jUser->firstName . '">
                         <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="' . $jUser->lastName . '">
+                        <input type="email" name="email" id="email" placeholder="Email" value="' . $jUser->email . '">
                     ';
             }
         }
@@ -39,7 +40,7 @@ if (!$_SESSION) {
 
 
         <!--  <label for="email">Email</label> -->
-        <input type="email" name="email" id="email" placeholder="Email" value="<?= $_SESSION['userProps']->email ?>">
+
     </div>
     <h1>Or</h1>
     <button id="deleteProfileBtn">Delete Profile</button>

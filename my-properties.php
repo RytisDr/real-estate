@@ -10,7 +10,12 @@ if ($_SESSION['accType'] != 'agents') {
 <div id="myPropContainer"></div>
 <div class="addPropertyContainer">
     <form id="addPropertyForm">
-        <input type="file" name="mainPropertyImg" id="mainImg">
+        <div id="inputFileCont">
+            <label for="mainPropertyImg">Choose an image</label>
+            <input id="overlayInput" value="">
+
+            <input type="file" name="mainPropertyImg" id="mainImg">
+        </div>
         <input type="text" id="propertyTitleInput" name="title" placeholder="Title">
         <input type="number" id="priceInput" name="price" placeholder="Price">
         <input name="longitude" type="number" placeholder="Longitude" id="propertyLongitudeInput">
@@ -50,6 +55,10 @@ if ($_SESSION['accType'] != 'agents') {
 <script>
     removeActiveClass()
     setActiveLink("navMyProperties");
+    let fileInput = document.getElementById('mainImg')
+    fileInput.onchange = function() {
+        document.getElementById('overlayInput').value = fileInput.files[0].name;
+    }
 </script>
 <?php
 include_once(__DIR__ . '/components/html-bottom.php');

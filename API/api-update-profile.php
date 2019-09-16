@@ -16,6 +16,10 @@ $jData = getAndDecodeToJSON($sDataPath);
 if (empty($jData->$accType->$sProfileId->$sKeyToUpdate)) {
     $jData->$accType->$sProfileId->$sKeyToUpdate = $sKeyToUpdate;
 }
+if ($jData->$accType->$sProfileId->$sKeyToUpdate == "email") {
+    echo 'email';
+}
+
 $jData->$accType->$sProfileId->$sKeyToUpdate = $sNewValue;
 encodeAndPutToFile($sDataPath, $jData);
 echo '{"status": 1, "message":"success, account updated"}';

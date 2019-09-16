@@ -3,15 +3,16 @@ $(document).on("click", "#interestedBtn", function() {
     .parent()
     .attr("data-agent-email");
   var propertyTitle = $(this)
-    .parent()
-    .find("#propertyTitleh1")
+    .prev()
+    .prev()
     .text();
   var propertyPrice = $(this)
-    .siblings("#propertyPriceh1")
+    .prev()
     .text();
   var propertyImg = $(this)
     .siblings(".propertyMainImg")
     .attr("src");
+
   $.ajax({
     url: "API/api-send-email.php",
     method: "POST",
